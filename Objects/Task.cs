@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ToDoList
+namespace ToDo.Objects
 {
   public class Task
   {
@@ -21,10 +21,6 @@ namespace ToDoList
     {
       _description = newDescription;
     }
-    public int GetId()
-    {
-      return _id;
-    }
     public static List<Task> GetAll()
     {
       return _instances;
@@ -36,6 +32,10 @@ namespace ToDoList
     public int GetId()
     {
       return _id;
+    }
+    public static Task Find(int searchId)
+    {
+      return _instances[searchId-1];
     }
   }
 }
