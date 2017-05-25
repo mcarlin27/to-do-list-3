@@ -2,7 +2,7 @@ using Nancy;
 using Todo.Objects;
 using System.Collections.Generic;
 
-namespace TodoList
+namespace Todo.Objects
 {
   public class HomeModule : NancyModule
   {
@@ -26,7 +26,7 @@ namespace TodoList
       Get["/categories/{id}"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Category selectedCategory = Category.Find(parameters.id);
-        List<Tasks> categoryTasks = selectedCategory.GetTasks();
+        List<Task> categoryTasks = selectedCategory.GetTasks();
         model.Add("category", selectedCategory);
         model.Add("tasks", categoryTasks);
         return View["category.cshtml", model];
