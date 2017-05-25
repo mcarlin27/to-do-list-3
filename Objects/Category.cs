@@ -7,14 +7,14 @@ namespace Todo.Objects
     private static List<Category> _instances = new list<Category> {};
     private string _name;
     private int _id;
-    private List<Task> _task;
+    private List<Task> _tasks;
 
     public Category(string categoryName)
     {
       _name = categoryName;
       _instances.Add(this);
       _id = _instances.Count;
-      _task = new List<Task>{};
+      _tasks = new List<Task>{};
     }
 
     public string GetName()
@@ -36,6 +36,14 @@ namespace Todo.Objects
     public static Category Find(int searchId)
     {
       return _instances[searchId-1];
+    }
+    public List<Task> GetTasks()
+    {
+      return _tasks;
+    }
+    public void AddTask(Task task)
+    {
+      _tasks.Add(task);
     }
   }
 }
